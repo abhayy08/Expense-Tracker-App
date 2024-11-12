@@ -14,22 +14,10 @@ import javax.inject.Singleton
 @Module
 object AppModule {
 
-//    @Singleton
-//    @Provides
-//    fun providePreferenceManager(@ApplicationContext context: Context): UIModeImpl {
-//        return UIModeDataStore(context)
-//    }
-
     @Singleton
     @Provides
     fun provideNoteDatabase(@ApplicationContext context: Context): AppDatabase {
         return Room.databaseBuilder(context, AppDatabase::class.java, "transaction.db")
             .fallbackToDestructiveMigration().build()
     }
-//
-//    @Singleton
-//    @Provides
-//    fun provideExportCSV(@ApplicationContext context: Context): ExportCsvService {
-//        return ExportCsvService(appContext = context)
-//    }
 }
